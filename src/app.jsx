@@ -10,12 +10,12 @@ var box_style = {
 var Box = React.createClass({
   render: function () {
     return (
-      <button style={ box_style }>{ this.state.value }</button>
+      <button style={ box_style } onClick={ this.updateTextValue }>{ this.state.value }</button>
     );
   },
   getInitialState: function () {
     return {
-      value: 'X'
+      value: '-'
     };
   },
   updateTextValue: function () {
@@ -24,12 +24,12 @@ var Box = React.createClass({
     };
     this.setState(new_state);
   },
-  componentDidMount: function () {
-    this.timer = setInterval(this.updateTextValue, 300);
-  },
-  componentWillUnmount: function () {
-    clearInterval(this.timer);
-  }
+  // componentDidMount: function () {
+  //   this.timer = setInterval(this.updateTextValue, 300);
+  // },
+  // componentWillUnmount: function () {
+  //   clearInterval(this.timer);
+  // }
 });
 
 React.render(<Box />, document.body);
