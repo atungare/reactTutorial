@@ -19,16 +19,16 @@ var Box = React.createClass({
     };
   },
   updateTextValue: function () {
-    var new_state = {};
-    if (this.state.value === 'X') {
-      new_state.value = "O"
-    } else if (this.state.value === 'O') {
-      new_state.value = "X"
-    }
-    this.setState(new_state)
+    var new_state = {
+      value: this.state.value === 'X' ? 'O' : 'X'
+    };
+    this.setState(new_state);
   },
   componentDidMount: function () {
-    setInterval(this.updateTextValue, 300);
+    this.timer = setInterval(this.updateTextValue, 300);
+  },
+  componentWillUnmount: function () {
+    clearInterval(this.timer);
   }
 });
 
