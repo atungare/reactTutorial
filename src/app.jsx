@@ -24,12 +24,18 @@ var Box = React.createClass({
     };
     this.setState(new_state);
   },
-  // componentDidMount: function () {
-  //   this.timer = setInterval(this.updateTextValue, 300);
-  // },
-  // componentWillUnmount: function () {
-  //   clearInterval(this.timer);
-  // }
 });
 
-React.render(<Box />, document.body);
+var Row = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <Box />
+        <Box />
+        <Box />
+      </div>
+    )
+  }
+});
+
+React.render(<Row />, document.body);
